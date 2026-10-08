@@ -1,0 +1,15 @@
+/* Pour Chrome, Safari, Edge */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Pour Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+body{
+  /* background-color: #0a0a0a; */
+}
+
