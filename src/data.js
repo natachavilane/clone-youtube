@@ -75,6 +75,22 @@ export const navItems = [
   { image: "/assets/image/iconnoir/short.svg", label: "Short", to: "/short" },
   
 ];
+export const MenuBar = [
+  {to: "/Presentation" , label: "Presentation"},
+  {to: "/Presse" , label: "Presse"},
+  {to: "/Droithauteur" , label: "Droit d'auteur"},
+  {to: "/Contact" , label: "Nous contacter"},
+  {to: "/Createurs" , label: "Createurs"},
+  {to: "/Publicite" , label: "Publicite"},
+  {to: "Developpeur" , label: "Developpeurs"},
+  {to: "/Presentation" , label: "Conditions d'utilisation"},
+  {to: "/Presentation" , label: "Confidentialite"},
+  {to: "/Presentation" , label: "Regles de securite"},
+  {to: "/Presentation" , label: "Premiers pas sur youtube"},
+  {to: "/Presentation" , label: "Tester de nouvelles fonctionnalites"}
+
+];
+
 export const MenuVous = [
   // { icon: "fa-house", label: "Vous", to: "/vous" },
   { image: "/assets/image/profileUser.svg", label: "Votre chaine", to: "/Chaine" },

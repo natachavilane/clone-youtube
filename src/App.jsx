@@ -35,12 +35,6 @@ function App() {
                     {/* composant footer */}
                     
                         <Footer/>
-                    
-
-
-
-                    
-
                 </div>
 
                 

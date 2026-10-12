@@ -1,7 +1,8 @@
-import { listVideo, navItems, MenuVous,MenuAutesContenu,MenuExplorer } from "../../data";
+import { listVideo, navItems, MenuVous,MenuAutesContenu,MenuExplorer, MenuBar } from "../../data";
 import SidebarComponent from "./SidebarComponent";
 import ListAbonnement from "../ListAbonnement";
-import { useState } from "react";
+import MenuLink from "./MenuLink";
+import { useState ,useEffect } from "react";
 
 
 function Sidebar(){
@@ -18,15 +19,15 @@ function Sidebar(){
     const elementaffichesMenuExplorer = voirPlus ? MenuExplorer : MenuExplorer.slice(0, 3);
     const elementsaffichesMenuAbonnement = voirPlus ? listVideo : listVideo.slice(0, 3);
     console.log("la valeur est" , elementsaffichesMenuAbonnement);
-     console.log("la valeur de liste video est" , listVideo);
+    console.log("la valeur de liste video est" , listVideo);
 
-    return(
+    return( 
         <div className="hidden md:block w-18 px-1 lg:px-0 lg:w-64 bg-white sticky top-16 max-h-[calc(100vh-4rem)] lg:overflow-y-auto z-50 sb h-screen">
-            <nav>
-                <ul className="py-2 lg:mx-5">
+            <nav className="">
+                <ul className="py-2">
                     {/* Menu acceuil et short */}
                     
-                    <div className="lg:border-b border-gray-500">
+                    <div className="lg:border-b border-gray-500 pb-2">
                         {navItems.map((item) =>(
                             <SidebarComponent
                                 key={item.label} {...item}
@@ -35,7 +36,7 @@ function Sidebar(){
                     </div>
 
                     {/* MENU ABONNEMNTS */}
-                    <div className="border relative"
+                    <div className="py-2 relative"
                         onMouseEnter={() => setmenuabonnementHover(true)}
                         onMouseLeave={() => setmenuabonnementHover(false)}
                     >
@@ -63,7 +64,7 @@ function Sidebar(){
                                     className="flex flex-row"
                                 />
                             ))}
-                            <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
+                            <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 border py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
                                 <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
                                 <span>{voirPlus ? "Moins" : "Plus"}</span>
                             </button>
@@ -81,22 +82,24 @@ function Sidebar(){
                                     
                                 />
                             ))}
-
-                            <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
-                                <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
-                                <span>{voirPlus ? "Moins" : "Plus"}</span>
-                            </button>
+                            <div className="mx-3">
+                                <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6  px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
+                                    <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
+                                    <span>{voirPlus ? "Moins" : "Plus"}</span>
+                                </button>
+                            </div>
                         </div>
 
                     </div>
 
                     {/* MENU VOUS */}
                     <div 
+                        className="lg:border-y border-gray-500 py-2 "
                         onMouseEnter={() => setmenuvousHover(true)}
                         onMouseLeave={() => setmenuvousHover(false)}
                     >
                         {/* Menu Vous version tablette*/}
-                        <div className="lg:border-t border-gray-500">
+                        <div className="">
                             <SidebarComponent 
                                 image="/assets/image/profileUser.svg" 
                                 imageDesktop="/assets/image/iconnoir/iconleft.svg"
@@ -130,21 +133,9 @@ function Sidebar(){
 
                     </div>
                  
-                   
-                   {/* Menu Autres contenu */}
-                   
-                    <div className="hidden lg:block">
-                        <p className="px-3 text-lg font-bold">Autres contenus Youtube</p>
-                        {MenuAutesContenu.map((contenu) =>
-                            <SidebarComponent
-                                key={contenu.label} {...contenu}
-                            />
-                        )}
-                    </div>    
-                
                    {/* Menu Explorer */}
-                    <div className="hidden lg:block">
-                        <p className="px-3 text-lg font-bold">Explorer</p>
+                    <div className="hidden lg:block py-2">
+                        <p className="px-5 text-lg font-bold">Explorer</p>
                         {elementaffichesMenuExplorer.map((explorer) =>
                             <SidebarComponent
                                 key={explorer.label} {...explorer}
@@ -152,13 +143,47 @@ function Sidebar(){
                         )}
                         {/* affichage du composant voir plus */}
                         {/* <ButtonVoirPlus Onclick={() => setVoirPlus(!voirPlus)}/> */}
-
-                        <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
-                            <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
-                            <span>{voirPlus ? "Moins" : "Plus"}</span>
-                        </button>
-                       
+                        <div className="mx-3">
+                            <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
+                                <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
+                                <span>{voirPlus ? "Moins" : "Plus"}</span>
+                            </button>
+                        </div>
                     </div>
+
+                     {/* Menu Autres contenu */}
+                   
+                    <div className="hidden lg:block border-y border-gray-500 py-2">
+                        <p className="px-5 text-lg font-bold whitespace-nowrap">Autres contenus Youtube</p>
+                        {MenuAutesContenu.map((contenu) =>
+                            <SidebarComponent
+                                key={contenu.label} {...contenu}
+                            />
+                        )}
+                    </div> 
+
+                    {/* Signalements */}
+                    <div className="hidden lg:block py-3">
+                        <SidebarComponent
+                            imageDesktop="/assets/image/iconSignalement.svg" // desktop : flèche vers le bas (ex: pour un menu déroulant)
+                            label="Signalements"
+                            to="/reporthistory"
+                        />
+                    </div>
+
+                    {/* lien */}
+                    <div className="hidden lg:block border-t border-gray-600 pt-3">
+                        {MenuBar.map((lien) =>
+                        <MenuLink 
+                            key={lien.label}
+                            {...lien}
+                        
+                        />  
+                    )}
+                        <p className="text-xs px-6 py-4 text-gray-500">@ 2026 Cloner par Fatima Vilane</p>
+                    </div>
+
+                
                 </ul>   
             </nav>
         </div>
