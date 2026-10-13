@@ -75,7 +75,7 @@ export const navItems = [
   { image: "/assets/image/iconnoir/short.svg", label: "Short", to: "/short" },
   
 ];
-export const MenuBar = [
+export const MenuBarPrimaire = [
   {to: "/Presentation" , label: "Presentation"},
   {to: "/Presse" , label: "Presse"},
   {to: "/Droithauteur" , label: "Droit d'auteur"},
@@ -83,13 +83,15 @@ export const MenuBar = [
   {to: "/Createurs" , label: "Createurs"},
   {to: "/Publicite" , label: "Publicite"},
   {to: "Developpeur" , label: "Developpeurs"},
+
+];
+export const MenuBarSegondaire =[
   {to: "/Presentation" , label: "Conditions d'utilisation"},
   {to: "/Presentation" , label: "Confidentialite"},
   {to: "/Presentation" , label: "Regles de securite"},
   {to: "/Presentation" , label: "Premiers pas sur youtube"},
   {to: "/Presentation" , label: "Tester de nouvelles fonctionnalites"}
-
-];
+]
 
 export const MenuVous = [
   // { icon: "fa-house", label: "Vous", to: "/vous" },

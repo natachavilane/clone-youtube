@@ -8,10 +8,10 @@
 // src/utils/Stylenav.js
 export function getNavLinkClass({ isActive }) {
   return `
-    flex items-center gap-4 lg:mx-3 px-3 text-sm rounded-lg
+    flex items-center gap-4 text-sm  rounded-lg
     ${
       isActive
-        ? "bg-[#D9D9D9] font-semibold text-[#0F0F0F]"
+        ? "bg-[#D9D9D9]  hover:bg-[#D9D9D9] font-semibold text-[#0F0F0F]"
         : "hover:bg-[#D9D9D9]"
     }
   `;

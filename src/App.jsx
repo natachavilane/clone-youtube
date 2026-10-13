@@ -12,17 +12,21 @@ function App() {
     // donc on le initaialise ou le remonte dans le composant parent commun et faire
     // puis le redescendre aux deux enfants via des props. Ça s'appelle "lifting state up" (remonter l'état).
     const [menuactif, setMenuactif] = useState("Tout");
+    const [sidebarOuvert, setsidebarOuvert] = useState("false");
+    console.log("sidebarOuvert", sidebarOuvert);
 
     return (
         <div className="h-screen w-full">
             <div className="grid grid-rows-[auto_1fr_auto] grid-cols-[minmax(0,1fr)]">
 
-            <Navbar/>
+                <Navbar onMenuClick={() => setsidebarOuvert(!sidebarOuvert)}/>
 
-                <div className="md:grid grid-cols-[auto_minmax(0,1fr)] gap-2">
+                {/* main */}
+
+                <div className="md:grid grid-cols-[auto_minmax(0,1fr)]">
                     {/* composant sudebar */}
                     <div className="">
-                        <Sidebar/>
+                        <Sidebar ouvert={sidebarOuvert}/>
                     </div>
                     {/* composant video et menubar */}
                     <div className="">
@@ -34,9 +38,11 @@ function App() {
 
                     {/* composant footer */}
                     
-                        <Footer/>
                 </div>
 
+                {/* footer */}
+
+                <Footer/>
                 
             </div>
 

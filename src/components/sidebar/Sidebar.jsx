@@ -1,12 +1,11 @@
-import { listVideo, navItems, MenuVous,MenuAutesContenu,MenuExplorer, MenuBar } from "../../data";
+import { listVideo, navItems, MenuVous,MenuAutesContenu,MenuExplorer, MenuBarPrimaire, MenuBarSegondaire } from "../../data";
 import SidebarComponent from "./SidebarComponent";
 import ListAbonnement from "../ListAbonnement";
 import MenuLink from "./MenuLink";
 import { useState ,useEffect } from "react";
 
-
-function Sidebar(){
-    // ici on va ecouter element pour savoir si il est ouvert ou ferme avec un usestate
+function Sidebar ({ouvert}){
+        // ici on va ecouter element pour savoir si il est ouvert ou ferme avec un usestate
     const [menuvoushover , setmenuvousHover] = useState(false);
     const [menuabonnementhover , setmenuabonnementHover] = useState(false);
 
@@ -20,40 +19,185 @@ function Sidebar(){
     const elementsaffichesMenuAbonnement = voirPlus ? listVideo : listVideo.slice(0, 3);
     console.log("la valeur est" , elementsaffichesMenuAbonnement);
     console.log("la valeur de liste video est" , listVideo);
+    
+    return(
+        <div 
+        className=
+        {`hidden lg:block ${ouvert ? "w-60 overflow-y-auto" : "w-18"} bg-white sticky top-16 max-h-[calc(100vh-4rem)] z-50 sb h-screen`}>
 
-    return( 
-        <div className="hidden md:block w-18 px-1 lg:px-0 lg:w-64 bg-white sticky top-16 max-h-[calc(100vh-4rem)] lg:overflow-y-auto z-50 sb h-screen">
-            <nav className="">
-                <ul className="py-2">
-                    {/* Menu acceuil et short */}
+            {ouvert ? (
+                <nav className="">
+                    <ul className="py-2">
+                        {/* Menu acceuil et short */}
+                        
+                        <div className="lg:border-b border-gray-500 pb-2 px-3">
+                            {navItems.map((item) =>(
+                                <SidebarComponent
+                                    key={item.label} {...item}
+                                    className="flex flex-row gap-4"
+                                />
+                            ))}
+                        </div>
+
+                        {/* MENU ABONNEMNTS */}
+                        <div className="py-2 px-3">
+
+                            {/* Menu version tablette */}
+                            <div className="">
+                                <SidebarComponent
+                                    imageMenuOuvert="/assets/image/iconnoir/iconleft.svg" // desktop : flèche vers le bas (ex: pour un menu déroulant)
+                                    label="Abonnements"
+                                    to="/abonnements"
+                                    className="lg:flex-row-reverse justify-end gap-2"
+                                />
+                            </div>
+
+                            {/* Menu liste abonnements  version desktop*/}
+
+                            <div className="">
+                                {elementsaffichesMenuAbonnement.map((chaine) => (
+                                    <ListAbonnement 
+                                        key={chaine.id}
+                                        logochaine={chaine.logochaine}
+                                        channel={chaine.channel}
+                                        to={`/channel/${chaine.id}`}
+                                        
+                                    />
+                                ))}
+                                <div className="">
+                                    <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 py-[0.6rem] px-4 rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
+                                        <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
+                                        <span>{voirPlus ? "Moins" : "Plus"}</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {/* MENU VOUS */}
+                        <div  className="lg:border-y border-gray-500 py-2 px-3 ">
+                            {/* Menu Vous version tablette*/}
+                            <div className="">
+                                <SidebarComponent 
+                                    imageMenuOuvert="/assets/image/iconnoir/iconleft.svg"
+                                    label="Vous" to="/vous" 
+                                    className="lg:flex-row-reverse justify-end gap-1 "
+                                />
+                            </div>
+                            
+                            {/* Menu Vous version desktop */}
+                            <div className="md:hidden lg:block">
+                                {MenuVous.map((menu)=>
+                                    <SidebarComponent
+                                        key={menu.label} {...menu}
+                                        className="flex flex-row gap-4" 
+                                    />
+                                )}
+                            </div>
+
+                        </div>
                     
-                    <div className="lg:border-b border-gray-500 pb-2">
-                        {navItems.map((item) =>(
-                            <SidebarComponent
-                                key={item.label} {...item}
-                             />
-                        ))}
-                    </div>
+                    {/* Menu Explorer */}
+                        <div className="hidden lg:block py-2 px-3">
+                            <p className="px-3 text-[1rem] font-bold">Explorer</p>
+                            {elementaffichesMenuExplorer.map((explorer) =>
+                                <SidebarComponent
+                                    key={explorer.label} {...explorer}
+                                    className="flex flex-row gap-4"
+                                />
+                            )}
+                            {/* affichage du composant voir plus */}
+                            {/* <ButtonVoirPlus Onclick={() => setVoirPlus(!voirPlus)}/> */}
+                            <div className="">
+                                <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
+                                    <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
+                                    <span>{voirPlus ? "Moins" : "Plus"}</span>
+                                </button>
+                            </div>
+                        </div>
 
-                    {/* MENU ABONNEMNTS */}
-                    <div className="py-2 relative"
-                        onMouseEnter={() => setmenuabonnementHover(true)}
-                        onMouseLeave={() => setmenuabonnementHover(false)}
-                    >
+                        {/* Menu Autres contenu */}
+                    
+                        <div className="hidden lg:block border-y border-gray-500 py-2 px-3">
+                            <p className="text-[1rem] font-bold whitespace-nowrap px-3 py-2">Autres contenus Youtube</p>
+                            {MenuAutesContenu.map((contenu) =>
+                                <SidebarComponent
+                                    key={contenu.label} {...contenu}
+                                    className="flex flex-row gap-4"
+                                />
+                            )}
+                        </div> 
 
-                        {/* Menu version tablette */}
-                        <div className="">
+                        {/* Signalements */}
+                        <div className="py-3 px-3">
                             <SidebarComponent
-                                image="/assets/image/iconnoir/abonnements.svg"     // mobile : flèche simple
-                                imageDesktop="/assets/image/iconnoir/iconleft.svg" // desktop : flèche vers le bas (ex: pour un menu déroulant)
-                                label="Abonnements"
-                                to="/abonnements"
-                                className="lg:flex-row-reverse justify-end"
+                                imageMenuOuvert="/assets/image/iconSignalement.svg" // desktop : flèche vers le bas (ex: pour un menu déroulant)
+                                label="Signalements"
+                                to="/reporthistory"
+                                className="flex flex-row gap-4"
                             />
                         </div>
 
-                        {/* Menu version tablette au hover la liste s'affiche */}
-                        <div className={`lg:hidden ${menuabonnementhover ? "absolute z-[9999] w-52 shadow-2xl bg-white left-17  top-0 rounded-lg" : "hidden"} `}>
+                        {/* lien */}
+                        <div className="border-t border-gray-600 pt-3 px-3">
+
+                            <div className="px-3 flex flex-wrap">
+                                {MenuBarPrimaire.map((lien) =>
+                                    <MenuLink 
+                                        key={lien.label}
+                                        {...lien}
+                                    />  
+                                )}
+                            </div>
+
+                            <div className="px-3 mt-3">
+                                {MenuBarSegondaire.map((lienSegondaire) =>
+                                    <MenuLink 
+                                        key={lienSegondaire.label}
+                                        {...lienSegondaire}
+                                    />  
+                                )}
+                            </div>
+
+                            <p className="text-xs px-3 py-3 text-gray-500">@ 2026 Cloner par Fatima Vilane</p>
+                        </div>
+
+                    
+                    </ul>   
+                </nav>
+            ) 
+
+            : (
+                // Menu par defaut
+            <div className="mx-1" >
+
+                {/* MENU ACCEUIL ET SHORT */}
+                <div className="[&>a]:py-2">
+                    {navItems.map((item) =>(
+                        <SidebarComponent
+                            key={item.label} {...item}
+                            styleLabel="text-[10px]"
+                           
+                        />
+                    ))}
+                </div>
+
+                {/* MENU ABONNENEMTS ET VOUS */}
+                <div className="">
+                    <div className=""
+                        onMouseEnter={() => setmenuabonnementHover(true)} 
+                        onMouseLeave={() => setmenuabonnementHover(false)}>
+                        <div className="[&>a]:py-2">
+                            <SidebarComponent
+                                image="/assets/image/iconnoir/abonnements.svg"     // mobile : flèche simple
+                                label="Abonnements"
+                                to="/abonnements"
+                                styleLabel="text-[10px]"
+                              
+                            />
+                        </div>
+                        
+                        <div className={`${menuabonnementhover ? "absolute z-[9999] w-52 shadow-2xl bg-white left-17  top-0 rounded-lg" : "hidden"} `}>
                             <p className="text-black ml-4 pt-4 font-bold text-lg ">Abonnements</p>
                             {elementsaffichesMenuAbonnement.map((chaine) => (
                                 <ListAbonnement 
@@ -69,125 +213,43 @@ function Sidebar(){
                                 <span>{voirPlus ? "Moins" : "Plus"}</span>
                             </button>
                         </div>
-
-                        {/* Menu liste abonnements  version desktop*/}
-
-                        <div className="hidden lg:block">
-                            {elementsaffichesMenuAbonnement.map((chaine) => (
-                                <ListAbonnement 
-                                    key={chaine.id}
-                                    logochaine={chaine.logochaine}
-                                    channel={chaine.channel}
-                                    to={`/channel/${chaine.id}`}
-                                    
-                                />
-                            ))}
-                            <div className="mx-3">
-                                <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6  px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
-                                    <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
-                                    <span>{voirPlus ? "Moins" : "Plus"}</span>
-                                </button>
-                            </div>
-                        </div>
-
                     </div>
 
                     {/* MENU VOUS */}
-                    <div 
-                        className="lg:border-y border-gray-500 py-2 "
-                        onMouseEnter={() => setmenuvousHover(true)}
-                        onMouseLeave={() => setmenuvousHover(false)}
-                    >
+
+                    <div onMouseEnter={() => setmenuvousHover(true)} onMouseLeave={() => setmenuvousHover(false)}>
                         {/* Menu Vous version tablette*/}
-                        <div className="">
+                        <div className="[&>a]:py-2">
                             <SidebarComponent 
-                                image="/assets/image/profileUser.svg" 
-                                imageDesktop="/assets/image/iconnoir/iconleft.svg"
+                                image="/assets/image/profileUser.svg"
                                 label="Vous" to="/vous" 
-                                className="lg:flex-row-reverse justify-end"
+                                styleLabel="text-[10px]"
                             />
                         </div>
-                        
+                            
                         {/* Menu Vous version tablette au hover du menu la liste s'affiche */}
-                    
-                        <div className={`lg:hidden ${menuvoushover ? "absolute block z-[9999] w-52 shadow-2xl bg-white left-17 -top-18  rounded-lg" : "hidden"} `}>
+                        
+                        <div className={`${menuvoushover ? "absolute block z-[9999] w-52 shadow-2xl bg-white left-17 -top-18  rounded-lg" : "hidden"} `}>
                             <p className="text-black ml-4 pt-4 font-bold text-lg ">Vous</p>
                             {MenuVous.map((menu)=>
                                 <SidebarComponent
                                     key={menu.label} {...menu}
                                     className="flex flex-row gap-4"
-                                    
-                                />
-                            )}
-                        </div>
-
-                        {/* Menu Vous version desktop */}
-                        <div className="md:hidden lg:block">
-                            {MenuVous.map((menu)=>
-                                <SidebarComponent
-                                    key={menu.label} {...menu}
-                                    className="flex flex-row gap-4" 
                                 />
                             )}
                         </div>
 
                     </div>
-                 
-                   {/* Menu Explorer */}
-                    <div className="hidden lg:block py-2">
-                        <p className="px-5 text-lg font-bold">Explorer</p>
-                        {elementaffichesMenuExplorer.map((explorer) =>
-                            <SidebarComponent
-                                key={explorer.label} {...explorer}
-                            />
-                        )}
-                        {/* affichage du composant voir plus */}
-                        {/* <ButtonVoirPlus Onclick={() => setVoirPlus(!voirPlus)}/> */}
-                        <div className="mx-3">
-                            <button onClick={() => setVoirPlus(!voirPlus)} className="w-full flex items-center gap-6 px-4 py-[0.6rem] rounded-lg  hover:bg-[#D9D9D9] hover:font-semibold text-[#0F0F0F] text-sm">
-                                <i className={`fa-solid ${voirPlus ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
-                                <span>{voirPlus ? "Moins" : "Plus"}</span>
-                            </button>
-                        </div>
-                    </div>
 
-                     {/* Menu Autres contenu */}
-                   
-                    <div className="hidden lg:block border-y border-gray-500 py-2">
-                        <p className="px-5 text-lg font-bold whitespace-nowrap">Autres contenus Youtube</p>
-                        {MenuAutesContenu.map((contenu) =>
-                            <SidebarComponent
-                                key={contenu.label} {...contenu}
-                            />
-                        )}
-                    </div> 
+                </div>
+            </div>
+            )}
 
-                    {/* Signalements */}
-                    <div className="hidden lg:block py-3">
-                        <SidebarComponent
-                            imageDesktop="/assets/image/iconSignalement.svg" // desktop : flèche vers le bas (ex: pour un menu déroulant)
-                            label="Signalements"
-                            to="/reporthistory"
-                        />
-                    </div>
-
-                    {/* lien */}
-                    <div className="hidden lg:block border-t border-gray-600 pt-3">
-                        {MenuBar.map((lien) =>
-                        <MenuLink 
-                            key={lien.label}
-                            {...lien}
-                        
-                        />  
-                    )}
-                        <p className="text-xs px-6 py-4 text-gray-500">@ 2026 Cloner par Fatima Vilane</p>
-                    </div>
-
-                
-                </ul>   
-            </nav>
         </div>
-    
+
+
+
+
     );
 }
 export default Sidebar;
