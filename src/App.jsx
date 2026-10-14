@@ -1,12 +1,10 @@
 import Navbar from "./components/layout/Navbar";
-import Video from "./components/video/Video";
 import Sidebar from "./components/sidebar/Sidebar";
 import SidebarMobile from "./components/sidebar/SidebarMobile";
-import Menubar from "./components/video/Menubar";
-// import Menubar from "./components/Menubar";
 import Footer from "./components/layout/Footer";
 import { useState } from "react";
-
+import { Routes, Route  } from "react-router-dom";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -29,24 +27,34 @@ function App() {
                 {/* main */}
 
                 <div className="md:grid grid-cols-[auto_minmax(0,1fr)]">
+
                     {/* composant sudebar */}
                     <div className="">
                         <Sidebar ouvert={sidebarOuvert}/>
                     </div>
+
                     {/* composant video et menubar */}
 
                     <div className="">
 
-                        <Menubar
-                            menuactif={menuactif} 
-                            setMenuactif={setMenuactif} 
-                            sidebarMobileClick={() => setSidebarMobileOuvert(!sidebarMobileOuvert)}
-                         
-                        />
+                    <Routes>
+                        <Route path="/" element={
+                           <Home
+                                menuactif={menuactif} 
+                                setMenuactif={setMenuactif} 
+                                sidebarMobileClick={() => setSidebarMobileOuvert(!sidebarMobileOuvert)}                           
+                           />
+                        }/>  
 
-                        <main className="border border-red-500">
-                            <Video menuactif={menuactif}/>
-                        </main>
+                        <Route path="/abonnements" element={
+                            
+                            <h1>je suis la page abonnements</h1>
+                            
+                        }
+                        />
+                    </Routes>
+
+
                     </div>
 
                     {/* composant footer */}
