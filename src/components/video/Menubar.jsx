@@ -1,4 +1,4 @@
-import { MenuFiltres } from "../data";
+import { MenuFiltres } from "../../data";
 import { useRef } from "react";
 
 function Menubar ({menuactif, setMenuactif, sidebarMobileClick}){

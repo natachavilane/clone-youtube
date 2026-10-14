@@ -6,7 +6,7 @@ function Navbar({onMenuClick}) {
 
 
             <div className="relative flex items-center gap-3">
-                <button onClick={onMenuClick} className="hidden lg:block">
+                <button onClick={onMenuClick} className="hidden lg:block w-8 h-8 rounded-full hover:bg-green-500">
                     <i className="text-xl fa-solid fa-bars"></i>
                 </button>
 

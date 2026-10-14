@@ -1,9 +1,10 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import Video from "./components/video/Video";
 import Sidebar from "./components/sidebar/Sidebar";
 import SidebarMobile from "./components/sidebar/SidebarMobile";
-import Menubar from "./components/Menubar";
-import Footer from "./components/Footer";
+import Menubar from "./components/video/Menubar";
+// import Menubar from "./components/Menubar";
+import Footer from "./components/layout/Footer";
 import { useState } from "react";
 
 

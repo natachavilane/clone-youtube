@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { getNavLinkClass } from "../utils/Stylenav";
+import { getNavLinkClass } from "../../utils/Stylenav";
+
 
 function listAbonnemnet({to, logochaine, channel, className=""}){
     return(

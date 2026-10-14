@@ -1,5 +1,8 @@
-import SidebarComponent from "./sidebar/SidebarComponent";
-import { navItems } from "../data";
+// import SidebarComponent from "./sidebar/SidebarComponent";
+import SidebarComponent from "../sidebar/SidebarComponent";
+import { navItems } from "../../data";
+// import { navItems } from "../data";
+
 function Footer() {
 return(
     <div className="fixed bottom-0 left-0  z-50 bg-white lg:hidden flex justify-around border w-full [&>a]:w-19">
