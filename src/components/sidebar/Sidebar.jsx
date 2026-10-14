@@ -31,6 +31,7 @@ function Sidebar ({ouvert}){
                         {/* Menu acceuil et short */}
                         
                         <div className="lg:border-b border-gray-500 pb-2 px-3">
+                            
                             {navItems.map((item) =>(
                                 <SidebarComponent
                                     key={item.label} {...item}

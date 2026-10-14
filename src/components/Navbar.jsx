@@ -2,17 +2,17 @@
 
 function Navbar({onMenuClick}) {
     return (
-        <header className="h-16 sticky top-0 z-50 text-white flex justify-between items-center px-4 py-2 bg-black">
+        <header className="h-16 sticky top-0 z-50 text-white flex justify-between items-center lg:px-4 py-2 bg-black">
 
 
             <div className="relative flex items-center gap-3">
-                <button onClick={onMenuClick}>
+                <button onClick={onMenuClick} className="hidden lg:block">
                     <i className="text-xl fa-solid fa-bars"></i>
                 </button>
 
                 <div>
                     <img className="w-30 h-15" src="/assets/image/youtube.svg" alt="logoyoutube" />
-                    <span className="text-gray-500 absolute top-3 left-[8.8rem] text-[0.6rem] font-bold">SN</span>
+                    <span className="text-gray-500 absolute top-3 left-28 lg:left-[8.8rem] text-[0.6rem] font-bold">SN</span>
                 </div>
             </div>
 

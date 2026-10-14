@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Video from "./components/video/Video";
 import Sidebar from "./components/sidebar/Sidebar";
+import SidebarMobile from "./components/sidebar/SidebarMobile";
 import Menubar from "./components/Menubar";
 import Footer from "./components/Footer";
 import { useState } from "react";
@@ -12,14 +13,17 @@ function App() {
     // donc on le initaialise ou le remonte dans le composant parent commun et faire
     // puis le redescendre aux deux enfants via des props. Ça s'appelle "lifting state up" (remonter l'état).
     const [menuactif, setMenuactif] = useState("Tout");
-    const [sidebarOuvert, setsidebarOuvert] = useState("false");
-    console.log("sidebarOuvert", sidebarOuvert);
+    const [sidebarOuvert, setsidebarOuvert] = useState(false);
+    const [sidebarMobileOuvert, setSidebarMobileOuvert] = useState(false);
+    console.log("sidebarMobileOuvert", sidebarMobileOuvert);
 
     return (
         <div className="h-screen w-full">
             <div className="grid grid-rows-[auto_1fr_auto] grid-cols-[minmax(0,1fr)]">
 
                 <Navbar onMenuClick={() => setsidebarOuvert(!sidebarOuvert)}/>
+
+                <SidebarMobile ouvert={sidebarMobileOuvert} fermer={() => setSidebarMobileOuvert(false)}/>   
 
                 {/* main */}
 
@@ -29,8 +33,16 @@ function App() {
                         <Sidebar ouvert={sidebarOuvert}/>
                     </div>
                     {/* composant video et menubar */}
+
                     <div className="">
-                        <Menubar menuactif={menuactif} setMenuactif={setMenuactif}/>
+
+                        <Menubar
+                            menuactif={menuactif} 
+                            setMenuactif={setMenuactif} 
+                            sidebarMobileClick={() => setSidebarMobileOuvert(!sidebarMobileOuvert)}
+                         
+                        />
+
                         <main className="border border-red-500">
                             <Video menuactif={menuactif}/>
                         </main>
@@ -46,7 +58,12 @@ function App() {
                 
             </div>
 
+
+            
+
         </div>
+
+        
     );
 }
 
