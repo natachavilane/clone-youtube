@@ -1,8 +1,9 @@
 import SidebarMobile from "./components/sidebar/SidebarMobile";
 import { useState } from "react";
 import { Routes, Route  } from "react-router-dom";
-import Home from "./pages/Home";
 import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+import Abonnements from "./pages/Abonnements";
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
             <SidebarMobile 
                 ouvert={sidebarMobileOuvert}
                 fermer={() => setSidebarMobileOuvert(false)}
-            /> 
+            
+            />   
+
             <Routes>
                 <Route element={<Layout/>}>
                     <Route path="/" element={
@@ -30,8 +33,8 @@ function App() {
                     }/>  
 
                     <Route path="/abonnements" element={
-                                
-                        <h1>je suis la page abonnements</h1>
+                         <Abonnements/>       
+                        
                                 
                     }/>
 
