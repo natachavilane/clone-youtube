@@ -9,7 +9,7 @@ function Video({ menuactif }) {
 
     return (
         <div className="text-white mt-3">
-           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center">
+           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center">
                 {videosFiltres.map((video) => {
                     return (
                         <VideoCard key={video.id} video={video}/>
