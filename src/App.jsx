@@ -5,6 +5,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Abonnements from "./pages/Abonnements";
 import Shorts from "./pages/Shorts";
+import Wacth from "./pages/Watch";
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
                     }/>
                     <Route path="/short" element={
                          <Shorts/>                
+                    }/>
+                    <Route path="/watch/:id" element={
+                         <Wacth/>                
                     }/>
 
                 </Route>
