@@ -4,7 +4,7 @@ import Menubar from "../components/video/Menubar"
 function Home ({menuactif, setMenuactif, sidebarMobileClick}) {
     console.log("Home reçoit :", menuactif, setMenuactif);
     return(
-        <>
+        <div>
             <Menubar
                 menuactif={menuactif} 
                 setMenuactif={setMenuactif} 
@@ -13,7 +13,9 @@ function Home ({menuactif, setMenuactif, sidebarMobileClick}) {
             <main className="border border-red-500">
                 <Video menuactif={menuactif}/>
             </main>           
-        </>
+
+        </div>
+        
     );
     
 }

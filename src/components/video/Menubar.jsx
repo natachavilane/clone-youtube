@@ -21,7 +21,7 @@ function Menubar ({menuactif, setMenuactif, sidebarMobileClick}){
                     <i className="fa-solid fa-chevron-left"></i>
                 </button>
 
-                <div ref={scrollRef} className=" py-2 flex items-center gap-2 lg:gap-4 text-black overflow-x-auto scrollbar-hide">
+                <div ref={scrollRef} className="px-3 py-2 flex items-center gap-3 text-black overflow-x-auto scrollbar-hide">
 
                     <button onClick={sidebarMobileClick}  className="ml-2 w-5 h-5 lg:hidden shrink-0 flex items-center justify-center border border-white rounded-full -rotate-45 ">
                         <i className="text-white text-xs fa-regular fa-eye"></i>
@@ -32,7 +32,7 @@ function Menubar ({menuactif, setMenuactif, sidebarMobileClick}){
                             key={index} 
                             className=
                             {`px-3 py-1 rounded-sm text-sm font-semibold whitespace-nowrap ${
-                                menuactif === filtre ? "bg-white text-black" : "text-white"
+                                menuactif === filtre ? "bg-white text-black" : "text-white bg-[#212121]"
                             }`}
                             onClick={() => setMenuactif(filtre)}
                         >

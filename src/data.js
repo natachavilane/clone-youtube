@@ -71,7 +71,7 @@ export const listVideo=[
 ];
 
 export const navItems = [
-  { image: "/assets/image/iconnoir/home.svg", label: "Accueil", to: "/accueil" },
+  { image: "/assets/image/iconnoir/home.svg", label: "Accueil", to: "/" },
   { image: "/assets/image/iconnoir/short.svg", label: "Short", to: "/short" },
   
 ];
