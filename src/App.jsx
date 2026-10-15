@@ -4,6 +4,7 @@ import { Routes, Route  } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Abonnements from "./pages/Abonnements";
+import Shorts from "./pages/Shorts";
 
 
 function App() {
@@ -33,9 +34,10 @@ function App() {
                     }/>  
 
                     <Route path="/abonnements" element={
-                         <Abonnements/>       
-                        
-                                
+                         <Abonnements/>                
+                    }/>
+                    <Route path="/short" element={
+                         <Shorts/>                
                     }/>
 
                 </Route>
