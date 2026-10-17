@@ -1,7 +1,9 @@
 import Video from "../components/video/Video"
 import Menubar from "../components/video/Menubar"
+import { useState } from "react";
 
-function Home ({menuactif, setMenuactif, sidebarMobileClick}) {
+function Home ({sidebarMobileClick}) {
+    const [menuactif, setMenuactif] = useState("Tout");
     console.log("Home reçoit :", menuactif, setMenuactif);
     return(
         <div>

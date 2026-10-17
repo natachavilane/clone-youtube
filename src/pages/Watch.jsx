@@ -45,6 +45,7 @@ function Wacth() {
                     <VideoCard
                         key={s.id}
                         video={s}
+                        
                     
                     />
                 ))}
