@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Abonnements from "./pages/Abonnements";
 import Shorts from "./pages/Shorts";
 import Wacth from "./pages/Watch";
+import Chaine from "./pages/Chaine";
 
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
                     }/>
                     <Route path="/watch/:id" element={
                          <Wacth/>                
+                    }/>
+
+                    <Route path="/channel/:id" element={
+                         <Chaine/>                
                     }/>
 
                 </Route>

@@ -40,7 +40,7 @@ function Wacth() {
                     <span className="font-semibold">{video.channel}</span>
                 </div>
             </div>
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1">
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1" >
                 {videosuggerer.map((s) =>(
                     <VideoCard
                         key={s.id}
