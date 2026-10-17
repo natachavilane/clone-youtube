@@ -17,8 +17,7 @@ function Sidebar ({ouvert}){
     */
     const elementaffichesMenuExplorer = voirPlus ? MenuExplorer : MenuExplorer.slice(0, 3);
     const elementsaffichesMenuAbonnement = voirPlus ? listVideo : listVideo.slice(0, 3);
-    console.log("la valeur est" , elementsaffichesMenuAbonnement);
-    console.log("la valeur de liste video est" , listVideo);
+   
     
     return(
         <div 

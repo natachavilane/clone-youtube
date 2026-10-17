@@ -11,12 +11,9 @@ function Chaine() {
     if (!infoChaine) {
         return <p>chaine introuvable</p>;
     }
-    
+
     // garde les vidéos dont channel est égal au channel de la chaîne affichée
     const videochaine = listVideo.filter((v) => v.channel === infoChaine.channel);
-    console.log("La valeur de infochaine est :" , infoChaine);
-
-    console.log("video de la chaine :", videochaine);
 
     return(
         <div>

@@ -4,7 +4,6 @@ import { useState } from "react";
 
 function Home ({sidebarMobileClick}) {
     const [menuactif, setMenuactif] = useState("Tout");
-    console.log("Home reçoit :", menuactif, setMenuactif);
     return(
         <div>
             <Menubar
@@ -12,7 +11,7 @@ function Home ({sidebarMobileClick}) {
                 setMenuactif={setMenuactif} 
                 sidebarMobileClick={sidebarMobileClick}
             />
-            <main className="border border-red-500">
+            <main className="">
                 <Video menuactif={menuactif}/>
             </main>           
 

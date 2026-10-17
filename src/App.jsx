@@ -11,11 +11,8 @@ import NotFound from "./pages/NotFound";
 
 
 function App() {
-    // menuactif est utilise par deux composant video et menubar 
-    // donc on le initaialise ou le remonte dans le composant parent commun et faire
-    // puis le redescendre aux deux enfants via des props. Ça s'appelle "lifting state up" (remonter l'état).
     const [sidebarMobileOuvert, setSidebarMobileOuvert] = useState(false);
-    console.log("sidebarMobileOuvert", sidebarMobileOuvert);
+    
 
     return (
         <>
