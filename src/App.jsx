@@ -7,6 +7,7 @@ import Abonnements from "./pages/Abonnements";
 import Shorts from "./pages/Shorts";
 import Wacth from "./pages/Watch";
 import Chaine from "./pages/Chaine";
+import Search from "./pages/Search"; 
 import NotFound from "./pages/NotFound";
 
 
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/watch/:id" element={<Wacth/>}/>
                     <Route path="/channel/:id" element={<Chaine/>}/>
                     <Route path="*" element={<NotFound/>}/>
+                    <Route path="/search" element={<Search/>}/>
                 </Route>
             </Routes>
         </>        
