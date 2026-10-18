@@ -1,8 +1,15 @@
-
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar({onMenuClick}) {
-    // const [text, setText] = useState("");
+    const [text, setText] = useState("");
+    const navigate = useNavigate();
+
+    function LancerRecherche(e){
+        e.preventDefault()
+        navigate(`/search?q=${text}`);
+
+    }
     
     return (
         <header className="h-16 sticky top-0 z-50 text-white flex justify-between items-center lg:px-4 py-2 bg-black">
@@ -25,7 +32,7 @@ function Navbar({onMenuClick}) {
             </button>
 
             {/* Desktop */}
-            <form className="hidden md:flex flex-1 max-w-sm lg:max-w-xl border border-gray-600 flex items-center rounded-full overflow-hidden">
+            <form  onSubmit={LancerRecherche} className="hidden md:flex flex-1 max-w-sm lg:max-w-xl border border-gray-600 flex items-center rounded-full overflow-hidden">
                 
                 <input 
                     className="rounded-l-lg w-full outline-0 py-2 px-4 bg-[#121212]" 
@@ -33,6 +40,8 @@ function Navbar({onMenuClick}) {
                     name="" 
                     id="" 
                     placeholder="Rechercher"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
                 />
                 
                 <button type="submit" className="bg-[#1A1A1A] px-5 py-2 rounded-r-4xl">
