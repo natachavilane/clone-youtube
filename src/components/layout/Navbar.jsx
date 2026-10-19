@@ -10,6 +10,7 @@ function Navbar({onMenuClick}) {
         navigate(`/search?q=${text}`);
 
     }
+
     
     return (
         <header className="h-16 sticky top-0 z-50 text-white flex justify-between items-center lg:px-4 py-2 bg-black">

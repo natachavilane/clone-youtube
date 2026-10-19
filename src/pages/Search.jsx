@@ -4,16 +4,29 @@ import VideoCard from "../components/video/VideoCard";
 
 function Search() {
     const [searchParams] = useSearchParams();
-    const q = searchParams.get("q") || "";
-    const videoConcerne = listVideo.filter((v) => v.title.toLowerCase().includes(q.toLowerCase())
+    const q = (searchParams.get("q") || "").trim();
+    const videoConcerne = listVideo.filter(
+        (v) => 
+        v.title.toLowerCase().includes(q.toLowerCase()) || 
+        v.channel.toLowerCase().includes(q.toLowerCase()) ||
+        v.category.toLowerCase().includes(q.toLowerCase())
+
 
     );
+    if (videoConcerne.length === 0) {
+        return(
+            <p className="h-full flex justify-center items-center p-8 text-gray-500">
+                Aucun resultat trouve pour {q}
+            </p>
+
+        );
+       
+    }
+
     console.log("les videsos sont ", videoConcerne);
 
     return(
-        <div>
-
-            <h1 className="p-4 text-xl">Résultats pour : {q}</h1>
+        <div>  
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {videoConcerne.map((v) => (
                     <VideoCard
