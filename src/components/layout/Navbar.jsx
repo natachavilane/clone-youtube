@@ -2,10 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Navbar({onMenuClick}) {
+    // les states
     const [text, setText] = useState("");
-    const navigate = useNavigate();
+    const [rechercher, setRechercher] = useState(false);
 
-    function LancerRecherche(e){
+    // Fonction
+    const navigate = useNavigate();
+    const fermer = () => setRechercher(false);
+
+   const LancerRecherche = (e) =>{
         e.preventDefault()
         navigate(`/search?q=${text}`);
 
@@ -14,27 +19,31 @@ function Navbar({onMenuClick}) {
     
     return (
         <header className="h-16 sticky top-0 z-50 text-white flex justify-between items-center lg:px-4 py-2 bg-black">
-
-
             <div className="relative flex items-center gap-3">
                 <button onClick={onMenuClick} className="hidden lg:block w-8 h-8 rounded-full hover:bg-green-500">
                     <i className="text-xl fa-solid fa-bars"></i>
                 </button>
 
-                <div>
+                <div className={`${rechercher ? "hidden" : " lg:flex"}`}>
                     <img className="w-30 h-15" src="/assets/image/youtube.svg" alt="logoyoutube" />
                     <span className="text-gray-500 absolute top-3 left-28 lg:left-[8.8rem] text-[0.6rem] font-bold">SN</span>
                 </div>
             </div>
 
             {/* mobile */}
-            <button className="md:hidden">
-                <i className="text-lg fa-solid fa-magnifying-glass"></i>
-            </button>
+            {rechercher ? (
+                <button className="lg:hidden rotate-90" onClick={fermer}>
+                    <i className="fa-solid fa-arrow-down"></i>
+                </button>
+            )
+            : (
+                <button onClick={() => setRechercher(true)} className="lg:hidden">
+                    <i className="fa-solid fa-magnifying-glass text-lg "></i>
+                </button>
+            )}
 
             {/* Desktop */}
-            <form  onSubmit={LancerRecherche} className="hidden md:flex flex-1 max-w-sm lg:max-w-xl border border-gray-600 flex items-center rounded-full overflow-hidden">
-                
+            <form onSubmit={LancerRecherche}  className={`${rechercher ? "flex" : "hidden lg:flex"} flex-1 lg:max-w-xl border border-gray-600 flex items-center rounded-full overflow-hidden`}>
                 <input 
                     className="rounded-l-lg w-full outline-0 py-2 px-4 bg-[#121212]" 
                     type="search" 
@@ -48,18 +57,15 @@ function Navbar({onMenuClick}) {
                 <button type="submit" className="bg-[#1A1A1A] px-5 py-2 rounded-r-4xl">
                      <i className="text-lg fa-solid fa-magnifying-glass"></i>
                 </button>
-                
-            </form>
-            <div className="flex items-center gap-5">
+            </form>  
+            <div className="hidden lg:flex items-center gap-5">
                 <i className="text-2xl fa-regular fa-bell"></i>
                 <button className="w-10 h-10 borde-2 border-gray-500 rounded-full bg-white">
 
                 </button>
             </div>
         </header>
-   
   );
 
 }
-
 export default Navbar;
