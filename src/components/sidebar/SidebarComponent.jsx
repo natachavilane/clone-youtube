@@ -9,7 +9,7 @@ function SidebarComponent({image, imageMenuOuvert, label, to, className= "", sty
         <NavLink to={to} className={getNavLinkClass}>
             <div className={`flex flex-col items-center gap-1 px-3 w-full py-2 ${className}`}>
                 <img src={image || imageMenuOuvert} alt="" className={`w-6 h-6`}/>
-                <span className={styleLabel}>{label}</span>
+                <span className={`${styleLabel}`}>{label}</span>
             </div>
         </NavLink>
 

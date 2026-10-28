@@ -11,8 +11,8 @@ export function getNavLinkClass({ isActive }) {
     flex items-center gap-4 text-sm  rounded-lg
     ${
       isActive
-        ? "bg-[#D9D9D9]  hover:bg-[#D9D9D9] font-semibold text-[#0F0F0F]"
-        : "hover:bg-[#D9D9D9]"
+        ? "bg-[#f2f2f2]  hover:bg-[#f2f2f2] font-semibold text-[#0F0F0F]"
+        : "hover:bg-[#f2f2f2]"
     }
   `;
 }

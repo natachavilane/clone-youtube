@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 import { getNavLinkClass } from "../../utils/Stylenav";
 
 
-function listAbonnemnet({to, logochaine, channel, className=""}){
+function listAbonnemnet({to, logochaine, nom, className=""}){
     return(
         <NavLink to={to} className={getNavLinkClass}>
             <div className={`lg:flex items-center gap-4 py-2 px-3 ${className}`}>
-                <img className="w-6 h-6 rounded-full" src={logochaine} alt={channel} />
-                <span className="">{channel}</span>
+                <img className="w-6 h-6 rounded-full" src={logochaine} alt={nom} />
+                <span className="">{nom}</span>
             </div>
         </NavLink>
     );

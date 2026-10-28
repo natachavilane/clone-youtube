@@ -1,4 +1,4 @@
-import { listVideo, navItems, MenuVous,MenuAutesContenu,MenuExplorer, MenuBarPrimaire, MenuBarSegondaire } from "../../data";
+import { listVideo, navItems, MenuVous,MenuAutesContenu,MenuExplorer, MenuBarPrimaire, MenuBarSegondaire, chaine} from "../../data";
 import SidebarComponent from "./SidebarComponent";
 import ListAbonnement from "./ListAbonnement";
 import MenuLink from "./MenuLink";
@@ -16,20 +16,22 @@ function Sidebar ({ouvert}){
     on utilise le hooks useState pour ecouter le bouton 
     */
     const elementaffichesMenuExplorer = voirPlus ? MenuExplorer : MenuExplorer.slice(0, 3);
-    const elementsaffichesMenuAbonnement = voirPlus ? listVideo : listVideo.slice(0, 3);
+    const elementsaffichesMenuAbonnement = voirPlus ? chaine : chaine.slice(0, 3);
+    console.log('la valeur menu abonnement', elementsaffichesMenuAbonnement);
+   
    
     
     return(
         <div 
-        className=
-        {`hidden lg:block ${ouvert ? "w-60 overflow-y-auto" : "w-18"} bg-white sticky top-16 max-h-[calc(100vh-4rem)] py-2 z-50 sb h-screen`}>
+            className=
+            {`hidden lg:block ${ouvert ? "w-60 overflow-y-auto" : "w-18"} bg-white sticky top-16 max-h-[calc(100vh-4rem)] py-2 z-50 sb h-screen sidebar`}>
 
             {ouvert ? (
                 <nav className="">
                     <ul className="py-2">
                         {/* Menu acceuil et short */}
                         
-                        <div className="lg:border-b border-gray-500 pb-2 px-3">
+                        <div className="lg:border-b border-gray-300 pb-2 px-3">
                             
                             {navItems.map((item) =>(
                                 <SidebarComponent
@@ -55,12 +57,12 @@ function Sidebar ({ouvert}){
                             {/* Menu liste abonnements  version desktop*/}
 
                             <div className="">
-                                {elementsaffichesMenuAbonnement.map((chaine) => (
+                                {elementsaffichesMenuAbonnement.map((c) => (
                                     <ListAbonnement 
-                                        key={chaine.id}
-                                        logochaine={chaine.logochaine}
-                                        channel={chaine.channel}
-                                        to={`/channel/${chaine.id}`}
+                                        key={c.id}
+                                        logochaine={c.logochaine}
+                                        nom={c.nom}
+                                        to={`/channel/${c.id}`}
                                         
                                     />
                                 ))}
@@ -75,7 +77,7 @@ function Sidebar ({ouvert}){
                         </div>
 
                         {/* MENU VOUS */}
-                        <div  className="lg:border-y border-gray-500 py-2 px-3 ">
+                        <div  className="lg:border-y border-gray-300 py-2 px-3 ">
                             {/* Menu Vous version tablette*/}
                             <div className="">
                                 <SidebarComponent 
@@ -118,7 +120,7 @@ function Sidebar ({ouvert}){
 
                         {/* Menu Autres contenu */}
                     
-                        <div className="hidden lg:block border-y border-gray-500 py-2 px-3">
+                        <div className="hidden lg:block border-y border-gray-300 py-2 px-3">
                             <p className="text-[1rem] font-bold whitespace-nowrap px-3 py-2">Autres contenus Youtube</p>
                             {MenuAutesContenu.map((contenu) =>
                                 <SidebarComponent
@@ -139,7 +141,7 @@ function Sidebar ({ouvert}){
                         </div>
 
                         {/* lien */}
-                        <div className="border-t border-gray-600 pt-3 px-3">
+                        <div className="border-t border-gray-300 pt-3 px-3">
 
                             <div className="px-3 flex flex-wrap">
                                 {MenuBarPrimaire.map((lien) =>
@@ -199,12 +201,12 @@ function Sidebar ({ouvert}){
                         
                         <div className={`${menuabonnementhover ? "absolute z-[9999] w-52 shadow-2xl bg-white left-17  top-0 rounded-lg" : "hidden"} `}>
                             <p className="text-black ml-4 pt-4 font-bold text-lg ">Abonnements</p>
-                            {elementsaffichesMenuAbonnement.map((chaine) => (
+                            {elementsaffichesMenuAbonnement.map((c) => (
                                 <ListAbonnement 
-                                    key={chaine.id}
-                                    logochaine={chaine.logochaine}
-                                    channel={chaine.channel}
-                                    to={`/channel/${chaine.id}`}
+                                    key={c.id}
+                                    logochaine={c.logochaine}
+                                    nom={c.nom}
+                                    to={`/channel/${c.id}`}
                                     className="flex flex-row"
                                 />
                             ))}
@@ -244,13 +246,8 @@ function Sidebar ({ouvert}){
                 </div>
             </div>
             )}
-
-
         </div>
-
-
-
-
     );
 }
 export default Sidebar;
+

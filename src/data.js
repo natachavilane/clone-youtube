@@ -7,9 +7,9 @@ export const listVideo=[
   { 
     id:1,
     thumbnail: "/assets/image/projet1.png",
-    logochaine:"/assets/image/profil.png",
     title: "Apprendre React-router pour débutants",
-    channel: "Xaral",
+    channel:"xaral",
+    channelID:1,
     views: "13 k vues",
     publishedAt: "Il y a 12 jours",
     category:"Catologue"
@@ -18,8 +18,8 @@ export const listVideo=[
   { 
     id:2,
     title: "Apprendre angular pour débutants Apprendre angular pour débutants Apprendre angular pour débutants",
-    logochaine:"/assets/image/profil.png",
-    channel: "mady tech",
+    channelID: 1,
+    channel:"xaral",
     views: "10 k vues",
     publishedAt: "Il y a 20 jours",
     thumbnail: "/assets/image/projet2.png",
@@ -28,8 +28,8 @@ export const listVideo=[
   },
   { id:3 ,
     title: "Apprendre nextjs",
-    channel: "mara info",
-    logochaine:"/assets/image/profil.png",
+    channelID: 1,
+    channel:"xaral",
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",
@@ -39,9 +39,9 @@ export const listVideo=[
    { 
     id:4,
     thumbnail: "/assets/image/projet1.png",
-    logochaine:"/assets/image/profil.png",
     title: "Apprendre React-router pour débutants",
-    channel: "Xaral",
+    channel:"Mady tech",
+    channelID: 2,
     views: "13 k vues",
     publishedAt: "Il y a 12 jours",
     category:"Sport"
@@ -50,8 +50,8 @@ export const listVideo=[
   { 
     id:5,
     title: "Apprendre angular pour débutants Apprendre angular pour débutants Apprendre angular pour débutants",
-    logochaine:"/assets/image/profil.png",
-    channel: "mady tech",
+    channelID: 2,
+    channel:"Mady tech",
     views: "10 k vues",
     publishedAt: "Il y a 20 jours",
     thumbnail: "/assets/image/projet2.png",
@@ -60,15 +60,55 @@ export const listVideo=[
   },
   { id:6 ,
     title: "Apprendre nextjs",
-    channel: "mara info",
-    logochaine:"/assets/image/profil.png",
+    channelID: 2,
+    channel:"Mady tech",
+    views: "50 k vues",
+    publishedAt: "Il y a 40 jours",
+    thumbnail: "/assets/image/projet3.png",
+    category:"Musique"
+
+  },
+  { id:7 ,
+    title: "Apprendre nextjs",
+    channelID: 3,
+    channel:"Mady Info",
+    views: "50 k vues",
+    publishedAt: "Il y a 40 jours",
+    thumbnail: "/assets/image/projet3.png",
+    category:"Musique"
+
+  },
+  { id:8 ,
+    title: "Apprendre nextjs",
+    channelID: 3,
+    channel:"Mady Info",
+    views: "50 k vues",
+    publishedAt: "Il y a 40 jours",
+    thumbnail: "/assets/image/projet3.png",
+    category:"Musique"
+
+  },
+  { id:9 ,
+    title: "Apprendre nextjs",
+    channelID: 3,
+    channel:"Mady Info",
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",
     category:"Musique"
 
   }
+
 ];
+
+export const chaine =[
+  {id:1, logochaine:"/assets/image/profil.png", nom:"Mady tech", abonnes:"7,21 k abonnés", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum. dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum."},
+  {id:2, logochaine:"/assets/image/profil.png",nom:"Mara Info", abonnes:"3,1 k abonnés", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum."},
+  {id:3, logochaine:"/assets/image/profil.png",nom:"Xaral", abonnes:"5,2 k abonnés", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum."},
+  {id:4, logochaine:"/assets/image/profil.png", nom:"Mady tech", abonnes:"7,21 k abonnés", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum."},
+  {id:5, logochaine:"/assets/image/profil.png",nom:"Mara Info", abonnes:"3,1 k abonnés", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum."},
+  {id:6, logochaine:"/assets/image/profil.png",nom:"Xaral", abonnes:"5,2 k abonnés", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ut temporibus officia sunt hic, facere sed doloribus ad dolorum tempora! Quam officiis quo veritatis quidem quisquam magni commodi delectus dolorum."}
+]
 
 export const navItems = [
   { image: "/assets/image/iconnoir/home.svg", label: "Accueil", to: "/" },

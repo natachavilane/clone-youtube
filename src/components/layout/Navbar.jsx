@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const number = "25";
+const numero = parseInt(number);
+console.log("Le nombre est :",numero, typeof(numero));
 
 function Navbar({onMenuClick}) {
     // les states
     const [text, setText] = useState("");
     const [rechercher, setRechercher] = useState(false);
+    
+
 
     // Fonction
     const navigate = useNavigate();
@@ -24,26 +29,28 @@ function Navbar({onMenuClick}) {
                     <i className="text-xl fa-solid fa-bars"></i>
                 </button>
 
-                <div className={`${rechercher ? "hidden" : " lg:flex"}`}>
+                {/* Utilisation du state rechercher par cacher le logo et afficher le input au clic du menu loupe */}
+                <div className={`${rechercher ? "hidden lg:flex" : "lg:flex"}`}>
                     <img className="w-30 h-15" src="/assets/image/youtube.svg" alt="logoyoutube" />
                     <span className="text-gray-500 absolute top-3 left-28 lg:left-[8.8rem] text-[0.6rem] font-bold">SN</span>
                 </div>
             </div>
 
             {/* mobile */}
+            
             {rechercher ? (
-                <button className="lg:hidden rotate-90" onClick={fermer}>
-                    <i className="fa-solid fa-arrow-down"></i>
+                <button className="p-2 lg:hidden rotate-90" onClick={fermer}>
+                    <i className="text-lg fa-solid fa-arrow-down"></i>
                 </button>
             )
             : (
-                <button onClick={() => setRechercher(true)} className="lg:hidden">
-                    <i className="fa-solid fa-magnifying-glass text-lg "></i>
+                <button onClick={() => setRechercher(true)} className="p-2 lg:hidden">
+                    <i className="text-lg fa-solid fa-magnifying-glass text-lg "></i>
                 </button>
             )}
 
             {/* Desktop */}
-            <form onSubmit={LancerRecherche}  className={`${rechercher ? "flex" : "hidden lg:flex"} flex-1 lg:max-w-xl border border-gray-600 flex items-center rounded-full overflow-hidden`}>
+            <form onSubmit={LancerRecherche}  className={`${rechercher ? "flex mx-2" : "hidden lg:flex"} flex-1 lg:max-w-xl border border-gray-600 flex items-center rounded-full overflow-hidden`}>
                 <input 
                     className="rounded-l-lg w-full outline-0 py-2 px-4 bg-[#121212]" 
                     type="search" 

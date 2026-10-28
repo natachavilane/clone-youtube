@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { listVideo } from "../data";
+import { listVideo,chaine } from "../data";
 import VideoCard from "../components/video/VideoCard";
 
 
@@ -7,6 +7,8 @@ import VideoCard from "../components/video/VideoCard";
 function Wacth() {
     const {id} = useParams();
     const video = listVideo.find((v) => v.id === Number(id));
+    const chaineconcerne= chaine.find((c) => c.id === video.channelID);
+    console.log('chianeconcerne est:',chaineconcerne);
 
     if (!video) {
         return <p>Video indisponible</p>;
@@ -14,7 +16,7 @@ function Wacth() {
     
 
     const videosuggerer = listVideo.filter((suggerer) => suggerer.id !== video.id);
-
+    
 
     return(
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_350px] py-4">
@@ -27,17 +29,21 @@ function Wacth() {
 
                 <h1 className="text-xl font-bold mt-4">{video.title}</h1>
 
-                <p className="text-sm text-gray-500 mt-1">
-                    {video.views} • {video.publishedAt}
-                </p>
+                
 
-                <div className="flex items-center gap-3 mt-4">
+                <div className="flex items-center gap-3 pt-2">
                     <img
-                        src={video.logochaine}
+                        src={chaineconcerne.logochaine}
                         alt={video.channel}
                         className="w-10 h-10 rounded-full"
                     />
-                    <span className="font-semibold">{video.channel}</span>
+                    <div>
+                        <span className="font-semibold">{video.channel}</span>
+                        <p className="text-sm text-gray-500 mt-1">
+                            {chaineconcerne.abonnes}
+                        </p>
+
+                    </div>
                 </div>
             </div>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1" >

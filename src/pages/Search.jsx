@@ -13,6 +13,7 @@ function Search() {
 
 
     );
+    console.log('videoconcerne est ', videoConcerne);
     if (videoConcerne.length === 0) {
         return(
             <p className="h-full flex justify-center items-center p-8 text-gray-500">
@@ -26,7 +27,7 @@ function Search() {
     console.log("les videsos sont ", videoConcerne);
 
     return(
-        <div>  
+        <div className="pt-10">  
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {videoConcerne.map((v) => (
                     <VideoCard
@@ -36,8 +37,7 @@ function Search() {
             
                 ))}
 
-            </div>
-             
+            </div>    
         </div>
     );
 }
