@@ -5,10 +5,12 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Abonnements from "./pages/Abonnements";
 import Shorts from "./pages/Shorts";
-import Wacth from "./pages/Watch";
+import LayoutWatch from "./components/layout/LayoutWatch";
+import Watch from "./pages/Watch";
 import Chaine from "./pages/Chaine";
 import Search from "./pages/Search"; 
 import NotFound from "./pages/NotFound";
+
 
 
 function App() {
@@ -21,6 +23,12 @@ function App() {
                 ouvert={sidebarMobileOuvert}
                 fermer={() => setSidebarMobileOuvert(false)}
             />   
+            {/* <Routes> */}
+                {/* <Route element={<LayoutWatch/>}>
+                    <Route path="/watch/:id" element={<Watch/>}/> 
+                </Route> */}
+            {/* </Routes> */}
+
             <Routes>
                 <Route element={<Layout/>}>
                     <Route path="/" element={
@@ -30,10 +38,13 @@ function App() {
 
                     <Route path="/abonnements" element={<Abonnements/>}/>
                     <Route path="/short" element={<Shorts/>}/>
-                    <Route path="/watch/:id" element={<Wacth/>}/>
+                    {/* <Route path="/watch/:id" element={<Wacth/>}/> */}
                     <Route path="/channel/:id" element={<Chaine/>}/>
                     <Route path="*" element={<NotFound/>}/>
                     <Route path="/search" element={<Search/>}/>
+                </Route>
+                <Route element={<LayoutWatch/>}>
+                    <Route path="/watch/:id" element={<Watch/>}/> 
                 </Route>
             </Routes>
         </>        

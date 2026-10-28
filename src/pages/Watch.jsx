@@ -18,7 +18,7 @@ function Wacth() {
     
 
     return(
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_350px] py-4">
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_500px] py-4 px-5">
             <div className="">
                 <img
                     src={video.thumbnail}
@@ -26,7 +26,7 @@ function Wacth() {
                     className="w-full rounded-lg aspect-video object-cover"
                 />
 
-                <h1 className="text-xl font-bold mt-4">{video.title}</h1>
+                <h1 className="text-xl font-bold mt-4 line-clamp-2">{video.title}</h1>
 
                 
 
@@ -45,6 +45,7 @@ function Wacth() {
                     </div>
                 </div>
             </div>
+
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1" >
                 {videosuggerer.map((s) =>(
                     <VideoCardHorizontale

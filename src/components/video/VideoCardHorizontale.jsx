@@ -4,21 +4,29 @@ import { chaine } from "../../data";
 function VideoCardHorizontale({ video }) {
 
     const infoChaine = chaine.find((c) => c.id === video.channelID);
+    
     console.log("la valeur de infochaine est :", infoChaine);
 
     return (
-        <Link to={`/watch/${video.id}`} className="flex gap-3 hover:bg-gray-100 rounded-lg p-1">
+        <Link to={`/watch/${video.id}`} className="lg:flex gap-3 hover:bg-gray-100 rounded-lg p-1">
             <img
                 src={video.thumbnail}
                 alt={video.title}
-                className="w-40 aspect-video object-cover rounded-lg shrink-0"
+                className="w-full lg:w-80 aspect-video object-cover rounded-lg shrink-0"
             />
-            <div className="min-w-0">
-                <h3 className="text-sm font-semibold line-clamp-2">{video.title}</h3>
-                <p className="text-xs text-gray-500 mt-1">{infoChaine.nom}</p>
-                <p className="text-xs text-gray-500">
-                    {video.views} • {video.publishedAt}
-                </p>
+            <div className="flex gap-4 pt-2 lg:pt-0 lg:block">
+                <img
+                    src={infoChaine.logochaine}
+                    alt={video.channel}
+                    className="lg:hidden w-10 h-10 rounded-full shrink-0 "
+                />
+                <div className="min-w-0">
+                    <h3 className="text-sm font-semibold line-clamp-2">{video.title}</h3>
+                    <p className="text-xs text-gray-500 mt-1">{infoChaine.nom}</p>
+                    <p className="text-xs text-gray-500">
+                        {video.views} • {video.publishedAt}
+                    </p>
+                </div>
             </div>
         </Link>
     );
