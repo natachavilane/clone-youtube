@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const number = "25";
-const numero = parseInt(number);
-console.log("Le nombre est :",numero, typeof(numero));
 
 function Navbar({onMenuClick}) {
     // les states
     const [text, setText] = useState("");
     const [rechercher, setRechercher] = useState(false);
-    
-
 
     // Fonction
     const navigate = useNavigate();

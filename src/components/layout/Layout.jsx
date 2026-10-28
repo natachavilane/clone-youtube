@@ -14,7 +14,7 @@ const [sidebarOuvert, setSidebarOuvert] = useState(false);
                 
                 <Navbar onMenuClick={() => setSidebarOuvert(!sidebarOuvert)} />
 
-                <div className="md:grid grid-cols-[auto_minmax(0,1fr)]">
+                <div className="md:grid grid-cols-[auto_minmax(0,1fr)] gap-5">
                     <div>
                         <Sidebar ouvert={sidebarOuvert} />
                     </div>

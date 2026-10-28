@@ -7,7 +7,7 @@ function Chaine() {
     const {id} = useParams();
     // On recupere la video dont l'id  est egale id le url
     const chaines =  chaine.find((c) => c.id === Number(id));
-    console.log("chaine est :", chaines);
+    // console.log("chaine est :", chaines);
 
     if (!chaines) {
         return <p>chaine introuvable</p>;
@@ -15,7 +15,7 @@ function Chaine() {
 
     // garde les vidéos dont channel est égal au channel de la chaîne affichée
     const videochaine = listVideo.filter((v) => v.channelID === chaines.id);
-    console.log('videochaine est :', videochaine);
+    // console.log('videochaine est :', videochaine);
 
     return(
         <div className=" -red-500 px-10">

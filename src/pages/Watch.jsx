@@ -1,20 +1,19 @@
 import { useParams } from "react-router-dom"
 import { listVideo,chaine } from "../data";
-import VideoCard from "../components/video/VideoCard";
+// import VideoCard from "../components/video/VideoCard";
+import VideoCardHorizontale from "../components/video/VideoCardHorizontale";
 
 
 
 function Wacth() {
     const {id} = useParams();
     const video = listVideo.find((v) => v.id === Number(id));
-    const chaineconcerne= chaine.find((c) => c.id === video.channelID);
-    console.log('chianeconcerne est:',chaineconcerne);
-
+    
     if (!video) {
         return <p>Video indisponible</p>;
     }
-    
 
+    const chaineconcerne= chaine.find((c) => c.id === video.channelID);
     const videosuggerer = listVideo.filter((suggerer) => suggerer.id !== video.id);
     
 
@@ -48,7 +47,7 @@ function Wacth() {
             </div>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1" >
                 {videosuggerer.map((s) =>(
-                    <VideoCard
+                    <VideoCardHorizontale
                         key={s.id}
                         video={s}
                         

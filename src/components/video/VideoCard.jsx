@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function VideoCard({ video, className="" }) {
   const infoChaine = chaine.find((c) => c.id === video.channelID); 
-  console.log('La valeur de chaine dans videoCard :', chaine);
+  // console.log('La valeur de chaine dans videoCard :', chaine);
     
   return(
 <Link

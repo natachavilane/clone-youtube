@@ -17,15 +17,11 @@ function Sidebar ({ouvert}){
     */
     const elementaffichesMenuExplorer = voirPlus ? MenuExplorer : MenuExplorer.slice(0, 3);
     const elementsaffichesMenuAbonnement = voirPlus ? chaine : chaine.slice(0, 3);
-    console.log('la valeur menu abonnement', elementsaffichesMenuAbonnement);
-   
-   
     
     return(
         <div 
             className=
             {`hidden lg:block ${ouvert ? "w-60 overflow-y-auto" : "w-18"} bg-white sticky top-16 max-h-[calc(100vh-4rem)] py-2 z-50 sb h-screen sidebar`}>
-
             {ouvert ? (
                 <nav className="">
                     <ul className="py-2">
@@ -168,11 +164,9 @@ function Sidebar ({ouvert}){
                     </ul>   
                 </nav>
             ) 
-
             : (
                 // Menu par defaut
             <div className="mx-1" >
-
                 {/* MENU ACCEUIL ET SHORT */}
                 <div className="[&>a]:py-2">
                     {navItems.map((item) =>(
