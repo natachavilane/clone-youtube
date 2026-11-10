@@ -6,13 +6,10 @@ function LayoutWatch() {
      return (
         <div className="h-screen w-full">
             <div className="grid grid-rows-[auto_1fr_auto] grid-cols-[minmax(0,1fr)]">
-                
-
                 <Navbar onMenuClick={() => setSidebarOuvert(!sidebarOuvert)} />
                 <div>
-                        <Outlet />
+                    <Outlet />
                 </div>
-
                 <Footer />
             </div>
         </div>

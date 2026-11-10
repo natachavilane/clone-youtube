@@ -24,7 +24,7 @@ function Chaine() {
                 <div className="shrink-0">
                     <img
                         src={chaines.logochaine}
-                        alt={chaines.channel}
+                        alt={chaines.nom}
                         className="w-20 h-20 rounded-full "
                     />
                 </div>
