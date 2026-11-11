@@ -8,7 +8,7 @@ export const listVideo=[
     id:1,
     thumbnail: "/assets/image/projet1.png",
     title: "Apprendre React-router pour débutants",
-    channel:"xaral",
+    
     channelID:1,
     views: "13 k vues",
     publishedAt: "Il y a 12 jours",
@@ -19,7 +19,7 @@ export const listVideo=[
     id:2,
     title: "Apprendre angular pour débutants Apprendre angular pour débutants Apprendre angular pour débutants",
     channelID: 1,
-    channel:"xaral",
+    
     views: "10 k vues",
     publishedAt: "Il y a 20 jours",
     thumbnail: "/assets/image/projet2.png",
@@ -29,7 +29,7 @@ export const listVideo=[
   { id:3 ,
     title: "Apprendre nextjs",
     channelID: 1,
-    channel:"xaral",
+    
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",
@@ -40,7 +40,7 @@ export const listVideo=[
     id:4,
     thumbnail: "/assets/image/projet1.png",
     title: "Apprendre React-router pour débutants",
-    channel:"Mady tech",
+    
     channelID: 2,
     views: "13 k vues",
     publishedAt: "Il y a 12 jours",
@@ -51,7 +51,7 @@ export const listVideo=[
     id:5,
     title: "Apprendre angular pour débutants Apprendre angular pour débutants Apprendre angular pour débutants",
     channelID: 2,
-    channel:"Mady tech",
+    
     views: "10 k vues",
     publishedAt: "Il y a 20 jours",
     thumbnail: "/assets/image/projet2.png",
@@ -61,7 +61,7 @@ export const listVideo=[
   { id:6 ,
     title: "Apprendre nextjs",
     channelID: 2,
-    channel:"Mady tech",
+    
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",
@@ -71,7 +71,7 @@ export const listVideo=[
   { id:7 ,
     title: "Apprendre nextjs",
     channelID: 3,
-    channel:"Mady Info",
+    
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",
@@ -81,7 +81,7 @@ export const listVideo=[
   { id:8 ,
     title: "Apprendre nextjs",
     channelID: 3,
-    channel:"Mady Info",
+    
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",
@@ -91,7 +91,7 @@ export const listVideo=[
   { id:9 ,
     title: "Apprendre nextjs",
     channelID: 3,
-    channel:"Mady Info",
+    
     views: "50 k vues",
     publishedAt: "Il y a 40 jours",
     thumbnail: "/assets/image/projet3.png",

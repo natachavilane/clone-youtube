@@ -20,7 +20,7 @@ function VideoCard({ video, className="" }) {
         <img className="shrink-0 w-8 h-8 rounded-full " src={infoChaine.logochaine} alt={video.channel} />
         <div>
           <h3 className="font-semibold mb-1 line-clamp-2">{video.title}</h3>
-          <p className="text-sm text-gray-300">{video.channel}</p>
+          <p className="text-sm text-gray-300">{infoChaine.nom}</p>
           <p className="text-xs text-gray-400">
             {video.views} • {video.publishedAt}
           </p>

@@ -7,12 +7,15 @@ function Search() {
     const [searchParams] = useSearchParams();
     const q = (searchParams.get("q") || "").trim();
    
-    const videoConcerne = listVideo.filter(
-        (v) => 
-        v.title.toLowerCase().includes(q.toLowerCase()) || 
-        v.channel.toLowerCase().includes(q.toLowerCase()) ||
-        v.category.toLowerCase().includes(q.toLowerCase())
-    );
+    const videoConcerne = listVideo.filter((v) => {
+        const infochaine = chaine.find(c => c.id === v.channelID);
+        return(
+            v.title.toLowerCase().includes(q.toLowerCase()) || 
+            infochaine.nom.toLowerCase().includes(q.toLowerCase()) ||
+            v.category.toLowerCase().includes(q.toLowerCase())
+
+        );
+    });
   
     if (videoConcerne.length === 0) {
         return(
