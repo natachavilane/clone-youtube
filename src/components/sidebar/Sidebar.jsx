@@ -4,7 +4,7 @@ import ListAbonnement from "./ListAbonnement";
 import MenuLink from "./MenuLink";
 import { useState } from "react";
 
-function Sidebar ({ouvert}){
+function Sidebar ({ouvert, className=""}){
         // ici on va ecouter element pour savoir si il est ouvert ou ferme avec un usestate
     const [menuvoushover , setmenuvousHover] = useState(false);
     const [menuabonnementhover , setmenuabonnementHover] = useState(false);
@@ -21,7 +21,7 @@ function Sidebar ({ouvert}){
     return(
         <div 
             className=
-            {`hidden lg:block ${ouvert ? "w-60 overflow-y-auto" : "w-18"} bg-white sticky top-16 max-h-[calc(100vh-4rem)] py-2 z-50 sb h-screen sidebar`}>
+            {`hidden lg:block ${ouvert ? "w-60 overflow-y-auto" : "w-18"} bg-white sticky top-16 max-h-[calc(100vh-4rem)] py-2 z-50 sb h-screen sidebar ${className}`}>
             {ouvert ? (
                 <nav className="">
                     <ul className="py-2">

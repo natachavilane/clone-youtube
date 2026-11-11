@@ -6,7 +6,7 @@ function SidebarMobile ({ouvert ,fermer}) {
     return(
 
         <div>
-            {ouvert &&(
+            {ouvert && (
                 <div className="fixed inset-0 bg-black/50 z-[60] lg:hidden" onClick={fermer}>
 
                     <aside className="fixed top-0 left-0 h-full w-64 bg-white z-[70] overflow-y-auto lg:hidden">
